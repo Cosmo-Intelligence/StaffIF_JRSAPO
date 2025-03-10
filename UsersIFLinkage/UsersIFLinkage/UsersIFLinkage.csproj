@@ -1,0 +1,232 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A1A3299D-7E96-493F-B58A-51C526A9D6EF}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>UsersIFLinkage</RootNamespace>
+    <AssemblyName>UsersIFLinkage</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisIgnoreBuiltInRuleSets>true</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisIgnoreBuiltInRuleSets>true</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Icon\User01.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Oracle.DataAccess">
+      <HintPath>.\Oracle.DataAccess.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Ctrl\REPORT_MRMS_LinkageController.cs" />
+    <Compile Include="Ctrl\THERARIS_RTRIS_LinkageController.cs" />
+    <Compile Include="Data\Export\Common\ConstQuery.cs" />
+    <Compile Include="Data\Export\Common\ExportUtil.cs" />
+    <Compile Include="Data\Export\Entity\ToUsersInfoEntity.cs" />
+    <Compile Include="Data\Export\ToUsersInfo.cs" />
+    <Compile Include="Data\Import\SERV_YOKOGAWA_UserManageComp.cs" />
+    <Compile Include="Data\Import\Common\ConstQuery.cs" />
+    <Compile Include="Data\Import\Common\ImportUtil.cs" />
+    <Compile Include="Data\Import\Entity\SERV_YOKOGAWA_UserManageCompEntity.cs" />
+    <Compile Include="Data\Import\Entity\SERV_YOKOGAWA_UserManageEntity.cs" />
+    <Compile Include="Data\Import\Entity\SERV_YOKOGAWA_UserAppManageEntity.cs" />
+    <Compile Include="Data\Import\Entity\SERV_YOKOGAWA_AttrManageEntity.cs" />
+    <Compile Include="Data\Import\Entity\SERV_ARQS_UserManageEntity.cs" />
+    <Compile Include="Data\Import\Entity\RIS_RRIS_SectionDoctorMasterEntity.cs" />
+    <Compile Include="Data\Import\Entity\REPORT_MRMS_UserManageEntity.cs" />
+    <Compile Include="Data\Import\Entity\RIS_RRIS_UserManageEntity.cs" />
+    <Compile Include="Data\Import\Entity\THERARIS_RTRIS_UserManageEntity.cs" />
+    <Compile Include="Data\Import\Entity\RIS_RRIS_UserAppManageEntity.cs" />
+    <Compile Include="Data\Import\Entity\THERARIS_RTRIS_UserAppManageEntity.cs" />
+    <Compile Include="Data\Import\Entity\REPORT_MRMS_UserAppManageEntity.cs" />
+    <Compile Include="Data\Import\Entity\RIS_RRIS_AttrManageEntity.cs" />
+    <Compile Include="Data\Import\Entity\REPORT_MRMS_AttrManageEntity.cs" />
+    <Compile Include="Data\Import\Entity\THERARIS_RTRIS_AttrManageEntity.cs" />
+    <Compile Include="Data\Import\Entity\RIS_RRIS_UserInfo_CAEntity.cs" />
+    <Compile Include="Data\Import\Entity\RIS_RRIS_WorkerMasterEntity.cs" />
+    <Compile Include="Data\Import\Entity\RIS_RRIS_SyozokuMasterEntity.cs" />
+    <Compile Include="Data\Import\Entity\REPORT_MRMS_UserInfo_CAEntity.cs" />
+    <Compile Include="Data\Import\Entity\REPORT_MRMS_WorkGroupMasterEntity.cs" />
+    <Compile Include="Data\Import\Entity\REPORT_MRMS_WorkGroupMemberEntity.cs" />
+    <Compile Include="Data\Import\RIS_RRIS_SectionDoctorMaster.cs" />
+    <Compile Include="Data\Import\SERV_YOKOGAWA_UserManage.cs" />
+    <Compile Include="Data\Import\SERV_YOKOGAWA_UserAppManage.cs" />
+    <Compile Include="Data\Import\SERV_YOKOGAWA_AttrManage.cs" />
+    <Compile Include="Data\Import\SERV_ARQS_UserManage.cs" />
+    <Compile Include="Data\Import\REPORT_MRMS_UserManage.cs" />
+    <Compile Include="Data\Import\REPORT_MRMS_UserAppManage.cs" />
+    <Compile Include="Data\Import\REPORT_MRMS_AttrManage.cs" />
+    <Compile Include="Data\Import\RIS_RRIS_AttrManage.cs" />
+    <Compile Include="Data\Import\RIS_RRIS_UserAppManage.cs" />
+    <Compile Include="Data\Import\RIS_RRIS_UserManage.cs" />
+    <Compile Include="Data\Import\THERARIS_RTRIS_AttrManage.cs" />
+    <Compile Include="Data\Import\THERARIS_RTRIS_UserAppManage.cs" />
+    <Compile Include="Data\Import\THERARIS_RTRIS_UserManage.cs" />
+    <Compile Include="Data\Import\REPORT_MRMS_UserInfo_CA.cs" />
+    <Compile Include="Data\Import\RIS_RRIS_UserInfo_CA.cs" />
+    <Compile Include="Data\Import\RIS_RRIS_WorkerMaster.cs" />
+    <Compile Include="Data\Import\RIS_RRIS_SyozokuMaster.cs" />
+    <Compile Include="Data\Import\REPORT_MRMS_WorkGroupMaster.cs" />
+    <Compile Include="Data\Import\REPORT_MRMS_WorkGroupMember.cs" />
+    <Compile Include="Frm\frmNotifyIcon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm\frmNotifyIcon.Designer.cs">
+      <DependentUpon>frmNotifyIcon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Ctrl\UsersIFLinkageController.cs" />
+    <Compile Include="Util\AppConfigController.cs" />
+    <Compile Include="Util\AppConfigParameter.cs" />
+    <Compile Include="Util\CommonParameter.cs" />
+    <Compile Include="Util\CommonUtil.cs" />
+    <Compile Include="Util\Logger.cs" />
+    <Compile Include="Util\OracleDataBase.cs" />
+    <Compile Include="Ctrl\RIS_RRIS_LinkageController.cs" />
+    <Compile Include="Ctrl\SERV_YOKOGAWA_LinkageController.cs" />
+    <Compile Include="Ctrl\SERV_ARQS_LinkageController.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Icon\User01.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Icon\yokogawa3.ico" />
+    <Content Include="UnicodeSQ.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Lib\log4net.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="log4net.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Frm\frmNotifyIcon.resx">
+      <DependentUpon>frmNotifyIcon.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.6.1 %28x86 および x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

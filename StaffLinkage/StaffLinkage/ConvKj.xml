@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+	<!-- 漢字コード:System.Text.Encordingオブジェクト -->
+	<KanjiCode id="KanjiCode" value="shift_jis;932"/>
+	<!-- <KanjiCode id="KanjiCode" value="euc-jp;51932"/>
+	<KanjiCode id="KanjiCode" value="iso-2022-jp;50220"/>
+	<KanjiCode id="KanjiCode" value="utf-7;65000" />
+	<KanjiCode id="KanjiCode" value="utf-8;65001"/>
+	<KanjiCode id="KanjiCode" value="utf-16;1200"/>
+	<KanjiCode id="KanjiCode" value="utf-32;12000"/> -->
+
+	<!-- (変換前)旧字体;(変換後)常用漢字 -->
+	<KanjiSet id="KanjiSet001" value="髙;高" />
+	<KanjiSet id="KanjiSet002" value="﨑;崎" />
+	<KanjiSet id="KanjiSet003" value="瀨;瀬" />
+	<KanjiSet id="KanjiSet004" value="榮;栄" />
+	<KanjiSet id="KanjiSet005" value="惠;恵" />
+	<KanjiSet id="KanjiSet006" value="齋;斎" />
+	<KanjiSet id="KanjiSet007" value="栁;柳" />
+	<KanjiSet id="KanjiSet008" value="巖;巌" />
+	<KanjiSet id="KanjiSet009" value="舩;船" />
+	<KanjiSet id="KanjiSet010" value="濵;濱" />
+	<KanjiSet id="KanjiSet011" value="德;徳" />
+	<KanjiSet id="KanjiSet012" value="靏;鶴" />
+	<KanjiSet id="KanjiSet013" value="都;都" />
+	<KanjiSet id="KanjiSet014" value="桒;桑" />
+	<KanjiSet id="KanjiSet015" value="礼;礼" />
+	<KanjiSet id="KanjiSet016" value="寬;寛" />
+	<KanjiSet id="KanjiSet017" value="道愷;ドォカイ" />
+	<KanjiSet id="KanjiSet018" value="橫;横" />
+	<KanjiSet id="KanjiSet019" value="黑;黒" />
+</configuration>

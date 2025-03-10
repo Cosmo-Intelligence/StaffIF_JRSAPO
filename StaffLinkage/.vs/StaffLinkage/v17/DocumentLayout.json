@@ -1,0 +1,54 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\cosmo\\Desktop\\\u7DCF\u5408\u6771\u4EAC_\u30E6\u30FC\u30B6\u9023\u643A_\u30BD\u30FC\u30B9_20240119\\\u7DCF\u5408\u6771\u4EAC_\u30E6\u30FC\u30B6\u9023\u643A_\u30BD\u30FC\u30B9_20240119\\YOKOGAWA_SSH\\StaffLinkage\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A1A3299D-7E96-493F-B58A-51C526A9D6EF}|StaffLinkage\\StaffLinkage.csproj|c:\\users\\cosmo\\desktop\\\u7DCF\u5408\u6771\u4EAC_\u30E6\u30FC\u30B6\u9023\u643A_\u30BD\u30FC\u30B9_20240119\\\u7DCF\u5408\u6771\u4EAC_\u30E6\u30FC\u30B6\u9023\u643A_\u30BD\u30FC\u30B9_20240119\\yokogawa_ssh\\stafflinkage\\stafflinkage\\exe\\riyoushainfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A1A3299D-7E96-493F-B58A-51C526A9D6EF}|StaffLinkage\\StaffLinkage.csproj|solutionrelative:stafflinkage\\exe\\riyoushainfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A1A3299D-7E96-493F-B58A-51C526A9D6EF}|StaffLinkage\\StaffLinkage.csproj|c:\\users\\cosmo\\desktop\\\u7DCF\u5408\u6771\u4EAC_\u30E6\u30FC\u30B6\u9023\u643A_\u30BD\u30FC\u30B9_20240119\\\u7DCF\u5408\u6771\u4EAC_\u30E6\u30FC\u30B6\u9023\u643A_\u30BD\u30FC\u30B9_20240119\\yokogawa_ssh\\stafflinkage\\stafflinkage\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{A1A3299D-7E96-493F-B58A-51C526A9D6EF}|StaffLinkage\\StaffLinkage.csproj|solutionrelative:stafflinkage\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "RiyoushaInfo.cs",
+              "DocumentMoniker": "C:\\Users\\cosmo\\Desktop\\\u7DCF\u5408\u6771\u4EAC_\u30E6\u30FC\u30B6\u9023\u643A_\u30BD\u30FC\u30B9_20240119\\\u7DCF\u5408\u6771\u4EAC_\u30E6\u30FC\u30B6\u9023\u643A_\u30BD\u30FC\u30B9_20240119\\YOKOGAWA_SSH\\StaffLinkage\\StaffLinkage\\Exe\\RiyoushaInfo.cs",
+              "RelativeDocumentMoniker": "StaffLinkage\\Exe\\RiyoushaInfo.cs",
+              "ToolTip": "C:\\Users\\cosmo\\Desktop\\\u7DCF\u5408\u6771\u4EAC_\u30E6\u30FC\u30B6\u9023\u643A_\u30BD\u30FC\u30B9_20240119\\\u7DCF\u5408\u6771\u4EAC_\u30E6\u30FC\u30B6\u9023\u643A_\u30BD\u30FC\u30B9_20240119\\YOKOGAWA_SSH\\StaffLinkage\\StaffLinkage\\Exe\\RiyoushaInfo.cs",
+              "RelativeToolTip": "StaffLinkage\\Exe\\RiyoushaInfo.cs",
+              "ViewState": "AQIAAMUBAAAAAAAAAADgv4IBAAAYAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-21T05:37:32.211Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "app.config",
+              "DocumentMoniker": "C:\\Users\\cosmo\\Desktop\\\u7DCF\u5408\u6771\u4EAC_\u30E6\u30FC\u30B6\u9023\u643A_\u30BD\u30FC\u30B9_20240119\\\u7DCF\u5408\u6771\u4EAC_\u30E6\u30FC\u30B6\u9023\u643A_\u30BD\u30FC\u30B9_20240119\\YOKOGAWA_SSH\\StaffLinkage\\StaffLinkage\\app.config",
+              "RelativeDocumentMoniker": "StaffLinkage\\app.config",
+              "ToolTip": "C:\\Users\\cosmo\\Desktop\\\u7DCF\u5408\u6771\u4EAC_\u30E6\u30FC\u30B6\u9023\u643A_\u30BD\u30FC\u30B9_20240119\\\u7DCF\u5408\u6771\u4EAC_\u30E6\u30FC\u30B6\u9023\u643A_\u30BD\u30FC\u30B9_20240119\\YOKOGAWA_SSH\\StaffLinkage\\StaffLinkage\\app.config",
+              "RelativeToolTip": "StaffLinkage\\app.config",
+              "ViewState": "AQIAAAsAAAAAAAAAAAAxwCIAAAAXAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2024-03-21T05:36:54.925Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
