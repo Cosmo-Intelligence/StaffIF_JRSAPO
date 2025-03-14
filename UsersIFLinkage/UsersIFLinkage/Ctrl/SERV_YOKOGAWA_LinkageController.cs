@@ -137,25 +137,25 @@ namespace UsersIFLinkage.Ctrl
 
                 // 2025.02.xx Mod Cosmo＠Yamamoto Start   マツダ病院改修対応
                 //// Serv5対応 UserManageComp追加
-                //process = SERV_YOKOGAWA_UserManageCompEntity.EntityName;
+                process = SERV_YOKOGAWA_UserManageCompEntity.EntityName;
 
-                //SERV_YOKOGAWA_UserManageCompEntity usermanagecomp = new SERV_YOKOGAWA_UserManageCompEntity();
+                SERV_YOKOGAWA_UserManageCompEntity usermanagecomp = new SERV_YOKOGAWA_UserManageCompEntity();
 
-                //_log.InfoFormat("{0}マッピング処理を実行します。", process);
-                //// クライアントユーザー管理マッピング処理
-                //if (!SERV_YOKOGAWA_UserManageComp.Mapping(tousersRow, ref usermanagecomp, db))
-                //{
-                //    _log.ErrorFormat("{0}マッピング処理でエラーが発生しました。", process);
-                //    throw new Exception(string.Format("{0}マッピング処理でエラーが発生しました。", process));
-                //}
+                _log.InfoFormat("{0}マッピング処理を実行します。", process);
+                // クライアントユーザー管理マッピング処理
+                if (!SERV_YOKOGAWA_UserManageComp.Mapping(tousersRow, ref usermanagecomp, db))
+                {
+                    _log.ErrorFormat("{0}マッピング処理でエラーが発生しました。", process);
+                    throw new Exception(string.Format("{0}マッピング処理でエラーが発生しました。", process));
+                }
 
-                //_log.InfoFormat("{0}更新処理を実行します。", process);
-                //// クライアントユーザー管理更新処理
-                //if (!SERV_YOKOGAWA_UserManageComp.Merge(usermanagecomp, tousersRow, db))
-                //{
-                //    _log.ErrorFormat("{0}更新処理でエラーが発生しました。", process);
-                //    throw new Exception(string.Format("{0}更新処理でエラーが発生しました。", process));
-                //}
+                _log.InfoFormat("{0}更新処理を実行します。", process);
+                // クライアントユーザー管理更新処理
+                if (!SERV_YOKOGAWA_UserManageComp.Merge(usermanagecomp, tousersRow, db))
+                {
+                    _log.ErrorFormat("{0}更新処理でエラーが発生しました。", process);
+                    throw new Exception(string.Format("{0}更新処理でエラーが発生しました。", process));
+                }
                 // 2025.02.xx Mod Cosmo＠Yamamoto End   マツダ病院改修対応
             }
 

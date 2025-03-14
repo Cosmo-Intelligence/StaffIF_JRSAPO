@@ -64,7 +64,7 @@ namespace UsersIFLinkage.Data.Import.Common
                 + "      {9},"
                 + "      {10},"
                 + "      {11})";
-                //+ "      {12})";
+        //+ "      {12})";
 
         /// <summary>
         /// ユーザ管理 削除
@@ -228,78 +228,6 @@ namespace UsersIFLinkage.Data.Import.Common
                 + "      {4},"
                 + "      {5},"
                 + "      {6})";
-
-        #endregion
-
-        #region ARQS ユーザ管理
-
-        /// <summary>
-        /// ユーザ管理 Merge
-        /// </summary>
-        public const string ARQS_USERMANAGE_MERGE =
-                  " merge into USERMANAGE"
-                + " using("
-                + "   select {0} as USERID, {1} as HOSPITALID from dual"
-                + " ) dummy"
-                + " on ("
-                + "     USERMANAGE.USERID = dummy.USERID"
-                + "   and"
-                + "     USERMANAGE.HOSPITALID = dummy.HOSPITALID"
-                + " )"
-                + " when matched then"
-                + "   update set"
-                + "     {12}"
-                //+ "     USERID = {0},"
-                //+ "     HOSPITALID = {1},"
-                //+ "     PASSWORD = {2},"
-                //+ "     USERNAME = {3},"
-                //+ "     COMMISSION = {4},"
-                //+ "     COMMISSION2 = {5},"
-                //+ "     PASSWORDEXPIRYDATE = {6},"
-                //+ "     USERIDVALIDITYFLAG = {7}"
-                //+ "     BELONGINGDEPARTMENT = {8},"
-                //+ "     GRP = {9},"
-                //+ "     VIEWRACCESSCTRLFLAG = {10},"
-                //+ "     VIEWCACCESSCTRLFLAG = {11},"
-                + " when not matched then"
-                + "   insert"
-                + "     (USERID,"
-                + "      HOSPITALID,"
-                + "      PASSWORD,"
-                + "      USERNAME,"
-                + "      COMMISSION,"
-                + "      COMMISSION2,"
-                + "      PASSWORDEXPIRYDATE,"
-                + "      USERIDVALIDITYFLAG,"
-                + "      BELONGINGDEPARTMENT,"
-                + "      GRP,"
-                + "      VIEWRACCESSCTRLFLAG,"
-                + "      VIEWCACCESSCTRLFLAG)"
-                + "   values"
-                + "     ({0},"
-                + "      {1},"
-                + "      {2},"
-                + "      {3},"
-                + "      {4},"
-                + "      {5},"
-                + "      {6},"
-                + "      {7},"
-                + "      {8},"
-                + "      {9},"
-                + "      {10},"
-                + "      {11})";
-
-        /// <summary>
-        /// ユーザ管理 削除
-        /// </summary>
-        public const string ARQS_USERMANAGE_DELETE =
-                  " update USERMANAGE"
-                + " set"
-                + "   USERIDVALIDITYFLAG = {2}"
-                + " where"
-                + "   USERID = {0}"
-                + " and"
-                + "   HOSPITALID = {1}";
 
         #endregion
     }
@@ -683,18 +611,18 @@ namespace UsersIFLinkage.Data.Import.Common
                 + " )"
                 + " when matched then"
                 + "   update set"
-                //+ "     {12}"
-            //+ "     USERID = {0},"
-            //+ "     HOSPITALID = {1},"
-                + "     PASSWORD = {2},"
-            //+ "     USERNAME = {3},"
-            //+ "     USERNAMEENG = {4},"
-                + "     PASSWORDEXPIRYDATE = {5},"
-                + "     PASSWORDWARNINGDATE = {6},"
-                + "     USERIDVALIDITYFLAG = {7},"
-            //+ "     BELONGINGDEPARTMENT = {8},"
-            //+ "     MAINGROUPID = {9},"
-            //+ "     SUBGROUPIDLIST = {10},"
+                + "     {12}"
+                //+ "     USERID = {0},"
+                //+ "     HOSPITALID = {1},"
+                //+ "     PASSWORD = {2},"
+                //+ "     USERNAME = {3},"
+                //+ "     USERNAMEENG = {4},"
+                //+ "     PASSWORDEXPIRYDATE = {5},"
+                //+ "     PASSWORDWARNINGDATE = {6},"
+                //+ "     USERIDVALIDITYFLAG = {7},"
+                //+ "     BELONGINGDEPARTMENT = {8},"
+                //+ "     MAINGROUPID = {9},"
+                //+ "     SUBGROUPIDLIST = {10},"
                 + "     UPDATEDATETIME = {11}"
                 + " when not matched then"
                 + "   insert"
@@ -930,14 +858,14 @@ namespace UsersIFLinkage.Data.Import.Common
                 + " on (SECTIONDOCTORMASTER.DOCTOR_ID = dummy.DOCTOR_ID)"
                 + " when matched then"
                 + "   update set"
-                //+ "     {14}"
+                + "     {14}"
                 //+ "     DOCTOR_ID = {0},"
-                + "     DOCTOR_NAME = {1},"
-                + "     DOCTOR_ENGLISH_NAME = {2},"
-                + "     SECTION_ID = {3},"
-                + "     DOCTOR_TEL = {4},"
-                + "     TANTO_SECTION_ID = {5},"
-                + "     USEFLAG = {6},"
+                //+ "     DOCTOR_NAME = {1},"
+                //+ "     DOCTOR_ENGLISH_NAME = {2},"
+                //+ "     SECTION_ID = {3},"
+                //+ "     DOCTOR_TEL = {4},"
+                //+ "     TANTO_SECTION_ID = {5},"
+                //+ "     USEFLAG = {6},"
                 //+ "     SHOWORDER = {7},"
                 //+ "     ENTRY_DATE = {8},"
                 //+ "     ENTRY_USR_ID = {9},"

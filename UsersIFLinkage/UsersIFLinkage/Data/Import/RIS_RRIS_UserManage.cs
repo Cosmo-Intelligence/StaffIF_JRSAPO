@@ -148,29 +148,31 @@ namespace UsersIFLinkage.Data.Import
                 updateSql += col + " = " + ImportUtil.ConvertMD5(usermanage.Password, usermanage.Userid, AppConfigParameter.RRIS_CONVERT_MD5); 
             }
 
-            // ユーザ名称
-            col = "USERNAME";
-            if (Array.IndexOf(updCols, col) > -1)
-            {
-                if (!string.IsNullOrEmpty(updateSql))
-                {
-                    updateSql += ",";
-                }
+            // 2025.03.xx Mod Cosmo＠Yamamoto Start   JR札幌病院改修対応
+            //// ユーザ名称
+            //col = "USERNAME";
+            //if (Array.IndexOf(updCols, col) > -1)
+            //{
+            //    if (!string.IsNullOrEmpty(updateSql))
+            //    {
+            //        updateSql += ",";
+            //    }
 
-                updateSql += col + " = " + OracleDataBase.SingleQuotes(usermanage.Username);
-            }
+            //    updateSql += col + " = " + OracleDataBase.SingleQuotes(usermanage.Username);
+            //}
 
-            // ユーザ名称英字
-            col = "USERNAMEENG";
-            if (Array.IndexOf(updCols, col) > -1)
-            {
-                if (!string.IsNullOrEmpty(updateSql))
-                {
-                    updateSql += ",";
-                }
+            //// ユーザ名称英字
+            //col = "USERNAMEENG";
+            //if (Array.IndexOf(updCols, col) > -1)
+            //{
+            //    if (!string.IsNullOrEmpty(updateSql))
+            //    {
+            //        updateSql += ",";
+            //    }
 
-                updateSql += col + " = " + OracleDataBase.SingleQuotes(usermanage.Usernameeng);
-            }
+            //    updateSql += col + " = " + OracleDataBase.SingleQuotes(usermanage.Usernameeng);
+            //}
+            // 2025.03.xx Mod Cosmo＠Yamamoto End   JR札幌病院改修対応
 
             // パスワード有効期限日
             col = "PASSWORDEXPIRYDATE";

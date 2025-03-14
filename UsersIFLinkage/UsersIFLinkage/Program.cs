@@ -98,7 +98,6 @@ namespace UsersIFLinkage
             // アプリ必須項目
             if (!CommonUtil.getNotEmptyAppConfigValue(AppConfigParameter.USER_Conn, table))  { return false; }
             if (!CommonUtil.getNotEmptyAppConfigValue(AppConfigParameter.YOKO_Conn, table))  { return false; }
-            if (!CommonUtil.getNotEmptyAppConfigValue(AppConfigParameter.ARQS_Conn, table))  { return false; }
             if (!CommonUtil.getNotEmptyAppConfigValue(AppConfigParameter.MRMS_Conn, table))  { return false; }
             if (!CommonUtil.getNotEmptyAppConfigValue(AppConfigParameter.RRIS_Conn, table))  { return false; }
             if (!CommonUtil.getNotEmptyAppConfigValue(AppConfigParameter.RTRIS_Conn, table)) { return false; }
@@ -125,10 +124,6 @@ namespace UsersIFLinkage
             if (!CommonUtil.getNotEmptyAppConfigValue(AppConfigParameter.YOKOGAWA_USERMANAGECOMP_UPD_COLS, table)) { return false; }
 			if (!CommonUtil.getNotEmptyAppConfigValue(AppConfigParameter.YOKOGAWA_CONVERT_LICENCETOUSE, table)) { return false; }
 			if (!CommonUtil.getNotEmptyAppConfigValue(AppConfigParameter.YOKOGAWA_CONVERT_LICENCETOUSE_APPCODE, table)) { return false; }
-			if (!CommonUtil.getNotEmptyAppConfigValue(AppConfigParameter.ARQS_CONVERT_MD5, table))             { return false; }
-            if (!CommonUtil.getNotEmptyAppConfigValue(AppConfigParameter.ARQS_CONVERT_GAIJI, table))           { return false; }
-            if (!CommonUtil.getNotEmptyAppConfigValue(AppConfigParameter.ARQS_GAIJI_REPLACE, table))           { return false; }
-            if (!CommonUtil.getNotEmptyAppConfigValue(AppConfigParameter.ARQS_USERMANAGE_UPD_COLS, table))     { return false; }
 
             // MRMS項目
             if (!CommonUtil.getNotEmptyAppConfigValue(AppConfigParameter.MRMS_CONVERT_MD5, table))         { return false; }

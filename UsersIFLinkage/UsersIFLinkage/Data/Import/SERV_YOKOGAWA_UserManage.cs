@@ -122,8 +122,8 @@ namespace UsersIFLinkage.Data.Import
                                 OracleDataBase.SingleQuotes(usermanage.Userid),
                                 OracleDataBase.SingleQuotes(usermanage.Hospitalid),
                                 // 2025.02.xx Mod Cosmo＠Yamamoto Start   マツダ病院改修対応
-                                //OracleDataBase.SingleQuotes("0"),
-                                OracleDataBase.SingleQuotes(usermanage.Useridvalidityflag),
+                                OracleDataBase.SingleQuotes("0"),
+                                //OracleDataBase.SingleQuotes(usermanage.Useridvalidityflag),
                                 // 2025.02.xx Mod Cosmo＠Yamamoto End   マツダ病院改修対応
                                 usermanage.Updatedatetime
                                 );

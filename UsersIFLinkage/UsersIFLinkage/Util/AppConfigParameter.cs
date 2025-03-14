@@ -19,11 +19,6 @@ namespace UsersIFLinkage.Util
         public static string YOKO_Conn = "YOKOGAWA_ConnectionString";
 
         /// <summary>
-        /// ARQS接続文字列
-        /// </summary>
-        public static string ARQS_Conn = "ARQS_ConnectionString";
-
-        /// <summary>
         /// MRMS接続文字列
         /// </summary>
         public static string MRMS_Conn = "MRMS_ConnectionString";
@@ -130,26 +125,6 @@ namespace UsersIFLinkage.Util
 		/// LICENCETOUSE変換対象APPCODE設定
 		/// </summary>
 		public static string YOKOGAWA_CONVERT_LICENCETOUSE_APPCODE = "YOKOGAWA_CONVERT_LICENCETOUSE_APPCODE";
-
-		/// <summary>
-		/// ARQSパスワード変換
-		/// </summary>
-		public static string ARQS_CONVERT_MD5 = "ARQS_CONVERT_MD5";
-
-        /// <summary>
-        /// ARQS外字変換
-        /// </summary>
-        public static string ARQS_CONVERT_GAIJI = "ARQS_CONVERT_GAIJI";
-
-        /// <summary>
-        /// ARQS外字変換後置換文字列
-        /// </summary>
-        public static string ARQS_GAIJI_REPLACE = "ARQS_GAIJI_REPLACE";
-
-        /// <summary>
-        /// ARQSユーザ管理更新対象カラム
-        /// </summary>
-        public static string ARQS_USERMANAGE_UPD_COLS = "ARQS_USERMANAGE_UPD_COLS";
 
         #endregion
 

@@ -124,18 +124,20 @@ namespace StaffLinkage
                 return false;
             }
 
+            // 2025.03.xx Mod Cosmo＠Yamamoto Start   JR札幌病院改修対応
             // 2025.01.16 Mod Cosmo＠Yamamoto Start   けいゆう病院改修対応
-            // 診療科医師マスタリスト
-            List<SectionDoctorMasterEntity> secdocList = new List<SectionDoctorMasterEntity>();
+            //// 診療科医師マスタリスト
+            //List<SectionDoctorMasterEntity> secdocList = new List<SectionDoctorMasterEntity>();
 
-            _log.Info("診療科医師マスタマッピング処理を実行します。");
-            // 診療科医師マスタ更新処理
-            if (!SectionDoctorMaster.Mapping(riyoushaList, toUsersInfoList, ref secdocList))
-            {
-                _log.Info("診療科医師マスタマッピング処理が失敗しました。");
-                return false;
-            }
+            //_log.Info("診療科医師マスタマッピング処理を実行します。");
+            //// 診療科医師マスタ更新処理
+            //if (!SectionDoctorMaster.Mapping(riyoushaList, toUsersInfoList, ref secdocList))
+            //{
+            //    _log.Info("診療科医師マスタマッピング処理が失敗しました。");
+            //    return false;
+            //}
             // 2025.01.16 Mod Cosmo＠Yamamoto End   けいゆう病院改修対応
+            // 2025.03.xx Mod Cosmo＠Yamamoto End   JR札幌病院改修対応
 
             // 破棄
             riyoushaList.Clear();
@@ -164,29 +166,31 @@ namespace StaffLinkage
                     //return false;
                 }
 
+                // 2025.03.xx Mod Cosmo＠Yamamoto Start   JR札幌病院改修対応
                 // 2025.01.16 Mod Cosmo＠Yamamoto Start   けいゆう病院改修対応
-                // RISDB接続クラス生成
-                DataBase risdb = new DataBase(risconn);
+                //// RISDB接続クラス生成
+                //DataBase risdb = new DataBase(risconn);
 
-                // DB接続
-                risdb.Open();
+                //// DB接続
+                //risdb.Open();
 
-                _log.Info("診療科医師マスタ登録処理を実行します。");
-                // ユーザ情報連携I/F登録処理
-                if (!SectionDoctorMaster.Merge(secdocList, risdb))
-                {
-                    _log.Info("診療科医師マスタ登録処理が失敗しました。");
-                    return false;
-                }
+                //_log.Info("診療科医師マスタ登録処理を実行します。");
+                //// ユーザ情報連携I/F登録処理
+                //if (!SectionDoctorMaster.Merge(secdocList, risdb))
+                //{
+                //    _log.Info("診療科医師マスタ登録処理が失敗しました。");
+                //    return false;
+                //}
                 // 2025.01.16 Mod Cosmo＠Yamamoto End   けいゆう病院改修対応
+                // 2025.03.xx Mod Cosmo＠Yamamoto End   JR札幌病院改修対応
 
 
                 //_log.Info("差分取得用制御ファイル更新処理を実行します。");
                 // 差分取得用制御ファイル更新処理
-                //if (!UpdateModymdFile())
-                //{
-                //return false;
-                //}
+                if (!UpdateModymdFile())
+                {
+                    return false;
+                }
             }
             return true;
         }
@@ -239,6 +243,7 @@ namespace StaffLinkage
                 // 2024.01.xx Add Cosmo＠Kasama Start 総合東京
                 // NGフォルダパス取得
                 string work_NG = AppConfigController.GetInstance().GetValueString(AppConfigParameter.FolderNG);
+                _log.DebugFormat("NGフォルダ：{0}", work);
                 // 2024.01.xx Add Cosmo＠Kasama End   総合東京
 
                 // ディレクトリ存在チェック

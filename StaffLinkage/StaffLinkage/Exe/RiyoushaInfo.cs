@@ -418,7 +418,7 @@ namespace StaffLinkage.Exe
                             XDocument xmlDoc = XDocument.Load(localXmlPath);
 
                             //**職員情報**
-                            XElement userdata_elm = xmlDoc.Element("SsiData").Element("UserData");
+                            XElement userdata_elm = xmlDoc.Element("TESTData").Element("UserData");
                             //XElement userdata_elm = xmlDoc.Element("UserData");
                             // 2025.01.29 Mod Cosmo＠Yamamoto Start   けいゆう病院改修対応
                             //IEnumerable<XElement> userdata_snk = (IEnumerable<XElement>)xmlDoc.Element("SsiData").Element("UserData").Element("DoctorSnks");
@@ -522,7 +522,7 @@ namespace StaffLinkage.Exe
                             {
                                 if (ConfigurationManager.AppSettings[(riyousha.QualificationCode)] == "01")
                                 {
-                                    XElement userdata_snk = xmlDoc.Element("SsiData").Element("UserData").Element("DoctorSnks");
+                                    XElement userdata_snk = xmlDoc.Element("TESTData").Element("UserData").Element("DoctorSnks");
                                     riyousha.Snk = userdata_snk.Element("Snk").Attribute("Code").Value;
                                 }
                                 else

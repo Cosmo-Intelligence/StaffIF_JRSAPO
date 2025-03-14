@@ -50,12 +50,6 @@ namespace UsersIFLinkage.Ctrl
                 AppConfigController.GetInstance().GetValueString(AppConfigParameter.YOKO_Conn);
 
         /// <summary>
-        /// ARQS DB接続文字列を取得
-        /// </summary>
-        private static string arqsConn =
-                AppConfigController.GetInstance().GetValueString(AppConfigParameter.ARQS_Conn);
-
-        /// <summary>
         /// MRMS DB接続文字列を取得
         /// </summary>
         private static string mrmsConn =
@@ -223,8 +217,6 @@ namespace UsersIFLinkage.Ctrl
         {
             // YOKOGAWA DBクラス
             OracleDataBase yokodb = null;
-            // ARQS DBクラス
-            OracleDataBase arqsdb = null;
             // MRMS DBクラス
             OracleDataBase mrmsdb = null;
             // RRIS DBクラス
@@ -242,8 +234,6 @@ namespace UsersIFLinkage.Ctrl
 
 				// YOKOGAWADBインスタンス生成
 				yokodb = new OracleDataBase(yokoConn);
-				// ARQSDBインスタンス生成
-				arqsdb = new OracleDataBase(arqsConn);
 				// MRMSDBインスタンス生成
 				mrmsdb = new OracleDataBase(mrmsConn);
 				// RRISDBインスタンス生成
@@ -293,30 +283,7 @@ namespace UsersIFLinkage.Ctrl
 					}
 				}
                 // 2021.12.30 Add H.Taira@COSMO End
-
-                // 2019.09.09 Del H.Taira@COSMO Start 
-                // 2025.02.xx Mod Cosmo＠Yamamoto Start   マツダ病院改修対応
-                //更新対象DBが「SERV」の場合
-                if (db == ToUsersInfoEntity.DB_SERV)
-                {
-                    dbname = "【SERV】ARQS";
-
-                    // SERV ARQS接続
-                    arqsdb.Open();
-
-                    // SERV ARQS連携処理
-                    SERV_ARQS_LinkageController arqsLink = new SERV_ARQS_LinkageController(arqsdb);
-
-                    _log.InfoFormat("{0}連携処理を実行します。", dbname);
-                    // SERV ARQS連携処理実行
-                    if (!arqsLink.Execute(tousersRow))
-                    {
-                        throw new Exception(string.Format("{0}連携処理でエラーが発生しました。", dbname));
-                    }
-                }
-                // 2025.02.xx Mod Cosmo＠Yamamoto End   マツダ病院改修対応
-                // 2019.09.09 Del H.Taira@COSMO   End 
-
+     
                 // 更新対象DBが「REPORT」の場合
                 if (db == ToUsersInfoEntity.DB_REPORT)
                 {
@@ -377,7 +344,6 @@ namespace UsersIFLinkage.Ctrl
                 // 2025.02.xx Mod Cosmo＠Yamamoto End   マツダ病院改修対応
 
                 yokodb.Commit();
-                arqsdb.Commit();
                 mrmsdb.Commit();
                 rrisdb.Commit();
                 // 2025.02.xx Mod Cosmo＠Yamamoto Start   マツダ病院改修対応
@@ -388,7 +354,6 @@ namespace UsersIFLinkage.Ctrl
             catch (Exception ex)
             {
                 yokodb.RollBack();
-                arqsdb.RollBack();
                 mrmsdb.RollBack();
                 rrisdb.RollBack();
                 // 2025.02.xx Mod Cosmo＠Yamamoto Start   マツダ病院改修対応
@@ -399,14 +364,12 @@ namespace UsersIFLinkage.Ctrl
             finally
             {
                 yokodb.Close();
-                arqsdb.Close();
                 mrmsdb.Close();
                 rrisdb.Close();
                 // 2025.02.xx Mod Cosmo＠Yamamoto Start   マツダ病院改修対応
                 //trisdb.Close();
                 // 2025.02.xx Mod Cosmo＠Yamamoto End   マツダ病院改修対応
                 yokodb = null;
-                arqsdb = null;
                 mrmsdb = null;
                 rrisdb = null;
                 // 2025.02.xx Mod Cosmo＠Yamamoto Start   マツダ病院改修対応
