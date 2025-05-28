@@ -23,7 +23,7 @@ namespace UsersIFLinkage.Data.Import.Common
                 + " )"
                 + " when matched then"
                 + "   update set"
-                + "     {12}"
+                + "     {13}"
                 //+ "     USERID = {0},"
                 //+ "     HOSPITALID = {1},"
                 //+ "     PASSWORD = {2},"
@@ -35,7 +35,8 @@ namespace UsersIFLinkage.Data.Import.Common
                 //+ "     BELONGINGDEPARTMENT = {8},"
                 //+ "     MAINGROUPID = {9},"
                 //+ "     SUBGROUPIDLIST = {10},"
-                + "     UPDATEDATETIME = {11}"
+                + "     UPDATEDATETIME = {11},"
+                + "     OFFICE_ID = {12}"
                 + " when not matched then"
                 + "   insert"
                 + "     (USERID,"
@@ -49,8 +50,8 @@ namespace UsersIFLinkage.Data.Import.Common
                 + "      BELONGINGDEPARTMENT,"
                 + "      MAINGROUPID,"
                 + "      SUBGROUPIDLIST,"
-                + "      UPDATEDATETIME)"
-                //+ "      OFFICE_ID)"
+                + "      UPDATEDATETIME,"
+                + "      OFFICE_ID)"
                 + "   values"
                 + "     ({0},"
                 + "      {1},"
@@ -63,8 +64,8 @@ namespace UsersIFLinkage.Data.Import.Common
                 + "      {8},"
                 + "      {9},"
                 + "      {10},"
-                + "      {11})";
-        //+ "      {12})";
+                + "      {11},"
+                + "      {12})";
 
         /// <summary>
         /// ユーザ管理 削除
@@ -254,7 +255,7 @@ namespace UsersIFLinkage.Data.Import.Common
                 + " )"
                 + " when matched then"
                 + "   update set"
-                + "     {13}"
+                + "     {15}"
                 //+ "     USERID = {0},"
                 //+ "     HOSPITALID = {1},"
                 //+ "     PASSWORD = {2},"
@@ -263,7 +264,7 @@ namespace UsersIFLinkage.Data.Import.Common
                 //+ "     PASSWORDEXPIRYDATE = {5},"
                 //+ "     PASSWORDWARNINGDATE = {6},"
                 //+ "     USERIDVALIDITYFLAG = {7},"
-                //+ "     BELONGINGDEPARTMENT = {8},"
+                + "     BELONGINGDEPARTMENT = {8},"
                 //+ "     MAINGROUPID = {9},"
                 //+ "     SUBGROUPIDLIST = {10},"
                 + "     UPDATEDATETIME = {11}"
@@ -282,7 +283,9 @@ namespace UsersIFLinkage.Data.Import.Common
                 + "      MAINGROUPID,"
                 + "      SUBGROUPIDLIST,"
                 + "      UPDATEDATETIME,"
-                + "      QUALIFIEDPERSONFLAG)"
+                + "      QUALIFIEDPERSONFLAG,"
+                + "      JOINTUSERNAME,"
+                + "      JOINTUSERCODE)"
                 + "   values"
                 + "     ({0},"
                 + "      {1},"
@@ -296,7 +299,9 @@ namespace UsersIFLinkage.Data.Import.Common
                 + "      {9},"
                 + "      {10},"
                 + "      {11},"
-                + "      {12})";
+                + "      {12},"
+                + "      {13},"
+                + "      {14})";
 
         /// <summary>
         /// ユーザ管理 削除

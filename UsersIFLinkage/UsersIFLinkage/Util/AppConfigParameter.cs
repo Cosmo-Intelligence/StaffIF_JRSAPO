@@ -155,6 +155,13 @@ namespace UsersIFLinkage.Util
 		/// </summary>
 		public static string MRMS_CONVERT_LICENCETOUSE = "MRMS_CONVERT_LICENCETOUSE";
 
+        // 2025.05.23 Add K.Kasama@COSMO Start JR札幌_改修対応
+        /// <summary>
+		/// LICENCETOUSE変換対象APPCODE設定
+		/// </summary>
+		public static string MRMS_CONVERT_LICENCETOUSE_APPCODE = "MRMS_CONVERT_LICENCETOUSE_APPCODE";
+        // 2025.05.23 Add K.Kasama@COSMO End   JR札幌_改修対応
+
         #endregion
 
         #region RIS設定

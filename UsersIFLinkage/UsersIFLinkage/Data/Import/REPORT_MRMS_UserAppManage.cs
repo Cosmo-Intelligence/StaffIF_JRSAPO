@@ -41,9 +41,31 @@ namespace UsersIFLinkage.Data.Import
                     appmanage.Userid = tousersRow[ToUsersInfoEntity.F_USERID].ToString();
                     appmanage.Hospitalid = tousersRow[ToUsersInfoEntity.F_HOSPITALID].ToString();
                     appmanage.Appcode = appcode;
-					appmanage.Licencetouse = ImportUtil.LicenceToUseSetting(AppConfigParameter.MRMS_CONVERT_LICENCETOUSE, tousersRow[ToUsersInfoEntity.F_SYOKUIN_KBN].ToString());
-					//appmanage.Licencetouse = tousersRow[ToUsersInfoEntity.F_USERIDVALIDITYFLAG].ToString();
-					appmanage.Myattrid = GetMyattrid(
+
+                    // 2025.05.23 Mod K.Kasama@COSMO Start JR札幌_改修対応
+                    //appmanage.Licencetouse = ImportUtil.LicenceToUseSetting(AppConfigParameter.MRMS_CONVERT_LICENCETOUSE, tousersRow[ToUsersInfoEntity.F_SYOKUIN_KBN].ToString());
+                    //appmanage.Licencetouse = tousersRow[ToUsersInfoEntity.F_USERIDVALIDITYFLAG].ToString();
+
+                    // APPCODEが設定ファイル一致するか確認
+                    if (ImportUtil.LicenceToUseAppCodeSetting(
+                    AppConfigParameter.MRMS_CONVERT_LICENCETOUSE_APPCODE
+                    , appcode))
+                    {
+                        // 一致する場合設定ファイルからLicencetouse取得
+                        appmanage.Licencetouse = ImportUtil.LicenceToUseSetting(AppConfigParameter.MRMS_CONVERT_LICENCETOUSE, tousersRow[ToUsersInfoEntity.F_SYOKUIN_KBN].ToString());
+                        if (appmanage.Licencetouse == "")
+                        {
+                            // 指定のない職種は0:使用不可とする
+                            appmanage.Licencetouse = REPORT_MRMS_UserAppManageEntity.LICENCETOUSE_FALSE;
+                        }
+                    }
+                    else
+                    {
+                        appmanage.Licencetouse = REPORT_MRMS_UserAppManageEntity.LICENCETOUSE_TRUE;
+                    }
+                    // 2025.05.23 Mod K.Kasama@COSMO End   JR札幌_改修対応
+
+                    appmanage.Myattrid = GetMyattrid(
                                                     appcode,
                                                     tousersRow[ToUsersInfoEntity.F_USERID].ToString(),
                                                     tousersRow[ToUsersInfoEntity.F_HOSPITALID].ToString()
