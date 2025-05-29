@@ -469,30 +469,7 @@ namespace StaffLinkage.Exe
                             riyousha.JobCode = jobcode;
                             // 2025.01.17 Mod Cosmo＠Yamamoto End   けいゆう病院改修対応
 
-                            //パスワード
-                            if (userdata_elm.Element("Password") != null)
-                            {
-                                string password = userdata_elm.Element("Password").Value;
-                                if (password != null)
-                                {
-                                    riyousha.Password = password;
-                                }
-                                else
-                                {
-                                    //パスワードがない場合はNGとする
-                                    _log.Info("パスワードの設定がない場合は処理できません。");
-                                    CreateFolderNG_today(todayWork_NG, thisFile_dat, thisFile_xml);
-                                    continue;
-                                }
-                            }
-                            else
-                            {
-                                //パスワードの要素がない場合はNGとする
-                                _log.Info("要素<Password>がありません。");
-                                CreateFolderNG_today(todayWork_NG, thisFile_dat, thisFile_xml);
-                                continue;
-                            }
-
+                         
                             //パスワード有効期限
                             if (userdata_elm.Element("Password").Attribute("ExpirationDate") != null)
                             {
@@ -502,6 +479,38 @@ namespace StaffLinkage.Exe
                                     expirationDate = null;
                                 }
                                 riyousha.ExpirationDate = expirationDate;
+                            }
+                          
+
+                            //パスワード
+                            if (userdata_elm.Element("Password") != null)
+                            {
+                                string password = userdata_elm.Element("Password").Value;
+                                if (password != null)
+                                {
+                                    riyousha.Password = password;
+                                }
+                                // 2025.05.26 Mod Cosmo＠Matsumoto Start   JR札幌病院改修対応
+                                //else
+                                //{
+                                //    //パスワードがない場合はNGとする
+                                //    _log.Info("パスワードの設定がない場合は処理できません。");
+                                //    CreateFolderNG_today(todayWork_NG, thisFile_dat, thisFile_xml);
+                                //    continue;
+                                //}
+                                // 2025.05.26 Mod Cosmo＠Matsumoto End   JR札幌病院改修対応
+                            }
+                            else
+                            {
+                                // 2025.05.26 Mod Cosmo＠Matsumoto Start   JR札幌病院改修対応
+                                ////パスワードの要素がない場合はNGとする
+                                //_log.Info("要素<Password>がありません。");
+                                //CreateFolderNG_today(todayWork_NG, thisFile_dat, thisFile_xml);
+                                //continue;
+
+                                // PASSWORDの記載がない場合は、【パスワード有効期限】を無期限(Null)にする
+                                riyousha.ExpirationDate = null;
+                                // 2025.05.26 Mod Cosmo＠Matsumoto End   JR札幌病院改修対応
                             }
 
                             // 2025.01.16 Mod Cosmo＠Yamamoto Start   けいゆう病院改修対応

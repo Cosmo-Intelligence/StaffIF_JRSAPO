@@ -98,6 +98,15 @@ namespace StaffLinkage.Exe
                             // 2024.01.xx Mod Cosmo＠Kasama Start 総合東京
                             //tousersinfo.Password = Decrypt(riyoushaList[i].Password);
                             tousersinfo.Password = riyoushaList[i].Password;
+
+                            // 2025.05.23 Mod Cosmo＠Matsumoto Start   JR札幌病院改修対応
+                            // PASSWORDが空の場合、UserIDを設定
+                            if (tousersinfo.Password == "")
+                            {
+                                tousersinfo.Password = riyoushaList[i].UserId;
+                            }
+                            // 2025.05.23 Mod Cosmo＠Matsumoto End   JR札幌病院改修対応
+
                             // 2024.01.xx Mod Cosmo＠Kasama End   総合東京
 
                             // 利用者漢字氏名を格納
@@ -112,9 +121,16 @@ namespace StaffLinkage.Exe
 
                             // 所属部科コード １件目を格納
                             //tousersinfo.Section_Id = riyoushaList[i].SyozokubukaCode1;
+
+
                             // 2025.01.29 Mod Cosmo＠Yamamoto Start   けいゆう病院改修対応
                             //tousersinfo.Section_Id = riyoushaList[i].PostCode;
-                            tousersinfo.Section_Id = riyoushaList[i].Snk;
+
+                            // 2025.05.23 Mod Cosmo＠Matsumoto Start   JR札幌病院改修対応
+                            //tousersinfo.Section_Id = riyoushaList[i].Snk;
+                            tousersinfo.Section_Id = riyoushaList[i].PostCode;
+                            // 2025.05.23 Mod Cosmo＠Matsumoto End   JR札幌病院改修対応
+
                             // 2025.01.29 Mod Cosmo＠Yamamoto End   けいゆう病院改修対応
 
                             // 所属部科名称 １件目を格納
@@ -167,12 +183,10 @@ namespace StaffLinkage.Exe
                                 tousersinfo.PasswordExpiryDate = enddt.ToString(CommonParameter.YYYYMMDD);
                                 // 1ヵ月前の日時を格納
                                 tousersinfo.PasswordWarningDate = enddt.AddMonths(-1).ToString(CommonParameter.YYYYMMDD);
+
                             }
-                            else
+                                else
                             {
-                                // 空文字を格納
-                                tousersinfo.PasswordExpiryDate = string.Empty;
-                                
                                 // 空文字を格納
                                 tousersinfo.PasswordWarningDate = string.Empty;
                             }
@@ -519,14 +533,19 @@ namespace StaffLinkage.Exe
         /// <returns></returns>
         public static string GetSyokuinKbn(string QualificationCode)
         {
-            //string syokuinkbn = ConfigurationManager.AppSettings[JobCode];
-            string syokuinkbn = QualificationCode;
+            // 2025.05.23 Mod Cosmo＠Matsumoto Start   JR札幌病院改修対応
+            string syokuinkbn = ConfigurationManager.AppSettings[QualificationCode];
+            //string syokuinkbn = QualificationCode;
+            // 2025.05.23 Mod Cosmo＠Matsumoto End   JR札幌病院改修対応
 
             // 設定ファイルより取得できない場合
             if (string.IsNullOrEmpty(syokuinkbn))
             {
+                // 2025.05.23 Mod Cosmo＠Matsumoto Start   JR札幌病院改修対応
                 // 05:その他を設定
-                syokuinkbn = "05";
+                //syokuinkbn = "05";
+                syokuinkbn = ConfigurationManager.AppSettings["DEFAULT"];
+                // 2025.05.23 Mod Cosmo＠Matsumoto End   JR札幌病院改修対応
             }
 
             return syokuinkbn;
