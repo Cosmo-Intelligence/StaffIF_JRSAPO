@@ -131,6 +131,9 @@ namespace UsersIFLinkage
             if (!CommonUtil.getNotEmptyAppConfigValue(AppConfigParameter.MRMS_GAIJI_REPLACE, table))       { return false; }
             if (!CommonUtil.getNotEmptyAppConfigValue(AppConfigParameter.MRMS_USERMANAGE_UPD_COLS, table)) { return false; }
 			if (!CommonUtil.getNotEmptyAppConfigValue(AppConfigParameter.MRMS_CONVERT_LICENCETOUSE, table)) { return false; }
+            // 2025.05.23 Add K.Kasama@COSMO Start JR札幌_改修対応
+            if (!CommonUtil.getNotEmptyAppConfigValue(AppConfigParameter.MRMS_CONVERT_LICENCETOUSE_APPCODE, table)) { return false; }
+            // 2025.05.23 Add K.Kasama@COSMO End   JR札幌_改修対応
 
             // RIS項目
             if (!CommonUtil.getNotEmptyAppConfigValue(AppConfigParameter.RRIS_CONVERT_MD5, table))         { return false; }

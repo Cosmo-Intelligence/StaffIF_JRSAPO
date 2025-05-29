@@ -210,6 +210,36 @@ namespace UsersIFLinkage.Data.Import.Entity
             set { qualifiedpersonflag = value; }
         }
 
+        // 2025.05.23 Add K.Kasama@COSMO Start JR札幌_改修対応
+        /// <summary>
+        /// 確定時連名ユーザ名
+        /// </summary>
+        private string jointusername = null;
+
+        /// <summary>
+        /// 確定時連名ユーザ名
+        /// </summary>
+        public string Jointusername
+        {
+            get { return jointusername; }
+            set { jointusername = value; }
+        }
+
+        /// <summary>
+        /// 確定時連名ユーザID
+        /// </summary>
+        private string jointusercode = null;
+
+        /// <summary>
+        /// 確定時連名ユーザID
+        /// </summary>
+        public string Jointusercode
+        {
+            get { return jointusercode; }
+            set { jointusercode = value; }
+        }
+        // 2025.05.23 Mod K.Kasama@COSMO End   JR札幌_改修対応
+
         #endregion
 
         #region filed定数

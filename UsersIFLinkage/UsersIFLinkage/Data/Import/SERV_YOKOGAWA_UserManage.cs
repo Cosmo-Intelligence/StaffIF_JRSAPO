@@ -50,17 +50,23 @@ namespace UsersIFLinkage.Data.Import
                 usermanage.Passwordexpirydate = ImportUtil.ConvertDateTime(tousersRow[ToUsersInfoEntity.F_PASSWORDEXPIRYDATE].ToString());
                 usermanage.Passwordwarningdate = ImportUtil.ConvertDateTime(tousersRow[ToUsersInfoEntity.F_PASSWORDWARNINGDATE].ToString());
                 usermanage.Useridvalidityflag = tousersRow[ToUsersInfoEntity.F_USERIDVALIDITYFLAG].ToString();
+                // 2025.05.23 Mod K.Kasama@COSMO Start JR札幌_改修対応
                 // 2022.04.08 Mod K.Yasuda@COSMO Start
                 // 2025.02.xx Mod Cosmo＠Yamamoto Start   マツダ病院改修対応
                 //usermanage.Belongingdepartment = tousersRow[ToUsersInfoEntity.F_SECTION_ID].ToString();
-                usermanage.Belongingdepartment = SERV_YOKOGAWA_UserManageEntity.BELONGINGDEPARTMENT;
+                //usermanage.Belongingdepartment = SERV_YOKOGAWA_UserManageEntity.BELONGINGDEPARTMENT;
                 // 2025.02.xx Mod Cosmo＠Yamamoto End   マツダ病院改修対応
                 //usermanage.Belongingdepartment = SERV_YOKOGAWA_UserManageEntity.BELONGINGDEPARTMENT;
                 // 2022.04.08 Mod K.Yasuda@COSMO End
+                usermanage.Belongingdepartment = tousersRow[ToUsersInfoEntity.F_SECTION_ID].ToString();
+                // 2025.05.23 Mod K.Kasama@COSMO End   JR札幌_改修対応
                 usermanage.Maingroupid = null;
                 usermanage.Subgroupidlist = null;
                 usermanage.Updatedatetime = ImportUtil.SYSDATE;
-                usermanage.Office_id = null;
+                // 2025.05.23 Mod K.Kasama@COSMO Start JR札幌_改修対応
+                //usermanage.Office_id = null;
+                usermanage.Office_id = tousersRow[ToUsersInfoEntity.F_SYOKUIN_KBN].ToString();
+                // 2025.05.23 Mod K.Kasama@COSMO End   JR札幌_改修対応
 
                 // データをログに出力
                 //_log.Debug(usermanage.ToString());
@@ -110,7 +116,7 @@ namespace UsersIFLinkage.Data.Import
                                 OracleDataBase.SingleQuotes(usermanage.Subgroupidlist),
                                 usermanage.Updatedatetime,
                                 // 2025.02.xx Mod Cosmo＠Yamamoto Start   マツダ病院改修対応
-                                //OracleDataBase.SingleQuotes(usermanage.Office_id),
+                                OracleDataBase.SingleQuotes(usermanage.Office_id),
                                 // 2025.02.xx Mod Cosmo＠Yamamoto End   マツダ病院改修対応
                                 GetUpdateSql(usermanage)
                                 );

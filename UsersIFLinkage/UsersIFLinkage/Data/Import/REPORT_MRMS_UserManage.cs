@@ -50,15 +50,22 @@ namespace UsersIFLinkage.Data.Import
                 usermanage.Passwordexpirydate = ImportUtil.ConvertDateTime(tousersRow[ToUsersInfoEntity.F_PASSWORDEXPIRYDATE].ToString());
                 usermanage.Passwordwarningdate = ImportUtil.ConvertDateTime(tousersRow[ToUsersInfoEntity.F_PASSWORDWARNINGDATE].ToString());
                 usermanage.Useridvalidityflag = tousersRow[ToUsersInfoEntity.F_USERIDVALIDITYFLAG].ToString();
+                // 2025.05.23 Mod K.Kasama@COSMO Start JR札幌_改修対応
                 // 2025.02.xx Mod Cosmo＠Yamamoto Start   マツダ病院改修対応
                 //usermanage.Belongingdepartment = REPORT_MRMS_UserManageEntity.BELONGINGDEPARTMENT;
-                usermanage.Belongingdepartment = null;
+                //usermanage.Belongingdepartment = null;
                 // 2025.02.xx Mod Cosmo＠Yamamoto End   マツダ病院改修対応
+                usermanage.Belongingdepartment = tousersRow[ToUsersInfoEntity.F_SECTION_ID].ToString();
+                // 2025.05.23 Mod K.Kasama@COSMO End   JR札幌_改修対応
                 usermanage.Maingroupid = null;
                 usermanage.Subgroupidlist = null;
                 usermanage.Updatedatetime = ImportUtil.SYSDATE;
                 usermanage.Qualifiedpersonflag = REPORT_MRMS_UserManageEntity.QUALIFIEDPERSONFLAG;
-                
+                // 2025.05.23 Add K.Kasama@COSMO Start JR札幌_改修対応
+                usermanage.Jointusername = null;
+                usermanage.Jointusercode = null;
+                // 2025.05.23 Add K.Kasama@COSMO End   JR札幌_改修対応
+
                 // データをログに出力
                 //_log.Debug(usermanage.ToString());
             }
@@ -104,6 +111,10 @@ namespace UsersIFLinkage.Data.Import
                                 OracleDataBase.SingleQuotes(usermanage.Subgroupidlist),
                                 usermanage.Updatedatetime,
                                 usermanage.Qualifiedpersonflag,
+                                // 2025.05.23 Add K.Kasama@COSMO Start JR札幌_改修対応
+                                OracleDataBase.SingleQuotes(usermanage.Jointusername),
+                                OracleDataBase.SingleQuotes(usermanage.Jointusercode),
+                                // 2025.05.23 Add K.Kasama@COSMO End   JR札幌_改修対応
                                 GetUpdateSql(usermanage)
                                 );
                 }
