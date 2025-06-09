@@ -47,6 +47,10 @@ namespace UsersIFLinkage
 
             try
             {
+                // タスクスケジューラを通すとカレントディレクトリがSystem32になるのでその対策
+                string exeDir = AppDomain.CurrentDomain.BaseDirectory;
+                System.IO.Directory.SetCurrentDirectory(exeDir);
+
                 // UsersIFLinkage.exe.config読込み
                 Hashtable appConfigTable = new Hashtable();
                 if (!CreateAppConfigParameter(appConfigTable))
