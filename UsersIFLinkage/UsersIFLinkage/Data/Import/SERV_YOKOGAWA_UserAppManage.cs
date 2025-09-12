@@ -38,43 +38,100 @@ namespace UsersIFLinkage.Data.Import
                 {
                     SERV_YOKOGAWA_UserAppManageEntity appmanage = new SERV_YOKOGAWA_UserAppManageEntity();
 
-                    appmanage.Userid = tousersRow[ToUsersInfoEntity.F_USERID].ToString();
-                    appmanage.Hospitalid = tousersRow[ToUsersInfoEntity.F_HOSPITALID].ToString();
-                    appmanage.Appcode = appcode;
 
-                    // APPCODEが設定ファイル一致するか確認
+                    // 2025.09.xx Mod Y.Yamamoto@COSMO Start JR札幌_改修対応
+                    // APPCODEをチェックしDMの場合、設定ファイルで設定した診療科と職種区分の場合のみ登録
                     if (ImportUtil.LicenceToUseAppCodeSetting(
-                    AppConfigParameter.YOKOGAWA_CONVERT_LICENCETOUSE_APPCODE
+                    AppConfigParameter.YOKOGAWA_USERMANAGE_APPCODE
                     , appcode))
                     {
-                        // 一致する場合設定ファイルからLicencetouse取得
-                        appmanage.Licencetouse = ImportUtil.LicenceToUseSetting(AppConfigParameter.YOKOGAWA_CONVERT_LICENCETOUSE, tousersRow[ToUsersInfoEntity.F_SYOKUIN_KBN].ToString());
-                        // 2025.05.23 Add K.Kasama@COSMO Start JR札幌_改修対応
-                        if (appmanage.Licencetouse == "")
+                        string userappmanage_dm = tousersRow[ToUsersInfoEntity.F_SYOKUIN_KBN].ToString() + ":" + tousersRow[ToUsersInfoEntity.F_SECTION_ID].ToString();
+                        // SECTION_ID,SYOKUIN_KBNが設定値と一致している場合のみ登録
+                        if (ImportUtil.LicenceToUseAppCodeSetting(
+                            AppConfigParameter.YOKOGAWA_USERAPPMANAGE_CONVERT_LICENCETOUSE
+                            , userappmanage_dm))
                         {
-                        // 指定のない職種は0:使用不可とする
-                            appmanage.Licencetouse = SERV_YOKOGAWA_UserAppManageEntity.LICENCETOUSE_FALSE;
+                            appmanage.Userid = tousersRow[ToUsersInfoEntity.F_USERID].ToString();
+                            appmanage.Hospitalid = tousersRow[ToUsersInfoEntity.F_HOSPITALID].ToString();
+                            appmanage.Appcode = appcode;
+
+                            // APPCODEが設定ファイル一致するか確認
+                            if (ImportUtil.LicenceToUseAppCodeSetting(
+                            AppConfigParameter.YOKOGAWA_CONVERT_LICENCETOUSE_APPCODE
+                            , appcode))
+                            {
+                                // 一致する場合設定ファイルからLicencetouse取得
+                                appmanage.Licencetouse = ImportUtil.LicenceToUseSetting(AppConfigParameter.YOKOGAWA_CONVERT_LICENCETOUSE, tousersRow[ToUsersInfoEntity.F_SYOKUIN_KBN].ToString());
+                                // 2025.05.23 Add K.Kasama@COSMO Start JR札幌_改修対応
+                                if (appmanage.Licencetouse == "")
+                                {
+                                    // 指定のない職種は0:使用不可とする
+                                    appmanage.Licencetouse = SERV_YOKOGAWA_UserAppManageEntity.LICENCETOUSE_FALSE;
+                                }
+                                // 2025.05.23 Add K.Kasama@COSMO End   JR札幌_改修対応
+                            }
+                            else
+                            {
+                                // 2025.05.23 Mod K.Kasama@COSMO Start JR札幌_改修対応
+                                // appmanage.Licencetouse = tousersRow[ToUsersInfoEntity.F_USERIDVALIDITYFLAG].ToString();
+                                appmanage.Licencetouse = SERV_YOKOGAWA_UserAppManageEntity.LICENCETOUSE_TRUE;
+                                // 2025.05.23 Mod K.Kasama@COSMO Start JR札幌_改修対応
+                            }
+
+                            appmanage.Myattrid = GetMyattrid(
+                                                            appcode,
+                                                            tousersRow[ToUsersInfoEntity.F_USERID].ToString(),
+                                                            tousersRow[ToUsersInfoEntity.F_HOSPITALID].ToString()
+                                                            );
+                            appmanage.Updatedatetime = ImportUtil.SYSDATE;
+
+                            appmanageList.Add(appmanage);
+                            // データをログに出力
+                            //_log.Debug(appmanage.ToString());
                         }
-                        // 2025.05.23 Add K.Kasama@COSMO End   JR札幌_改修対応
                     }
                     else
                     {
-                        // 2025.05.23 Mod K.Kasama@COSMO Start JR札幌_改修対応
-                        // appmanage.Licencetouse = tousersRow[ToUsersInfoEntity.F_USERIDVALIDITYFLAG].ToString();
-                        appmanage.Licencetouse = SERV_YOKOGAWA_UserAppManageEntity.LICENCETOUSE_TRUE;
-                        // 2025.05.23 Mod K.Kasama@COSMO Start JR札幌_改修対応
+                        appmanage.Userid = tousersRow[ToUsersInfoEntity.F_USERID].ToString();
+                        appmanage.Hospitalid = tousersRow[ToUsersInfoEntity.F_HOSPITALID].ToString();
+                        appmanage.Appcode = appcode;
+
+                        // APPCODEが設定ファイル一致するか確認
+                        if (ImportUtil.LicenceToUseAppCodeSetting(
+                        AppConfigParameter.YOKOGAWA_CONVERT_LICENCETOUSE_APPCODE
+                        , appcode))
+                        {
+                            // 一致する場合設定ファイルからLicencetouse取得
+                            appmanage.Licencetouse = ImportUtil.LicenceToUseSetting(AppConfigParameter.YOKOGAWA_CONVERT_LICENCETOUSE, tousersRow[ToUsersInfoEntity.F_SYOKUIN_KBN].ToString());
+                            // 2025.05.23 Add K.Kasama@COSMO Start JR札幌_改修対応
+                            if (appmanage.Licencetouse == "")
+                            {
+                                // 指定のない職種は0:使用不可とする
+                                appmanage.Licencetouse = SERV_YOKOGAWA_UserAppManageEntity.LICENCETOUSE_FALSE;
+                            }
+                            // 2025.05.23 Add K.Kasama@COSMO End   JR札幌_改修対応
+                        }
+                        else
+                        {
+                            // 2025.05.23 Mod K.Kasama@COSMO Start JR札幌_改修対応
+                            // appmanage.Licencetouse = tousersRow[ToUsersInfoEntity.F_USERIDVALIDITYFLAG].ToString();
+                            appmanage.Licencetouse = SERV_YOKOGAWA_UserAppManageEntity.LICENCETOUSE_TRUE;
+                            // 2025.05.23 Mod K.Kasama@COSMO Start JR札幌_改修対応
+                        }
+
+                        appmanage.Myattrid = GetMyattrid(
+                                                        appcode,
+                                                        tousersRow[ToUsersInfoEntity.F_USERID].ToString(),
+                                                        tousersRow[ToUsersInfoEntity.F_HOSPITALID].ToString()
+                                                        );
+                        appmanage.Updatedatetime = ImportUtil.SYSDATE;
+
+                        appmanageList.Add(appmanage);
+                        // データをログに出力
+                        //_log.Debug(appmanage.ToString());
                     }
+                    // 2025.09.xx Mod Y.Yamamoto@COSMO End JR札幌_改修対応
 
-                    appmanage.Myattrid = GetMyattrid(
-                                                    appcode,
-                                                    tousersRow[ToUsersInfoEntity.F_USERID].ToString(),
-                                                    tousersRow[ToUsersInfoEntity.F_HOSPITALID].ToString()
-                                                    );
-                    appmanage.Updatedatetime = ImportUtil.SYSDATE;
-
-                    appmanageList.Add(appmanage);
-                    // データをログに出力
-                    //_log.Debug(appmanage.ToString());
                 }
             }
             catch (Exception ex)

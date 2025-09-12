@@ -162,6 +162,18 @@ namespace UsersIFLinkage.Util
 		public static string MRMS_CONVERT_LICENCETOUSE_APPCODE = "MRMS_CONVERT_LICENCETOUSE_APPCODE";
         // 2025.05.23 Add K.Kasama@COSMO End   JR札幌_改修対応
 
+        // 2025.09.xx Mod Y.Yamamoto@COSMO Start JR札幌_改修対応
+        /// <summary>
+		/// USERMANAGA取込み制御対象APPCODE設定
+		/// </summary>
+		public static string YOKOGAWA_USERMANAGE_APPCODE = "YOKOGAWA_USERMANAGE_APPCODE";
+
+        /// <summary>
+		/// USEAPPRMANAGA取込み制御対象
+		/// </summary>
+		public static string YOKOGAWA_USERAPPMANAGE_CONVERT_LICENCETOUSE = "YOKOGAWA_USERAPPMANAGE_CONVERT_LICENCETOUSE";
+        // 2025.09.xx Mod Y.Yamamoto@COSMO End JR札幌_改修対応
+
         #endregion
 
         #region RIS設定

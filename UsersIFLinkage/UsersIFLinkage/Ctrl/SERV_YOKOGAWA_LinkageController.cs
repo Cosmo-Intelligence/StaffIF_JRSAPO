@@ -89,7 +89,6 @@ namespace UsersIFLinkage.Ctrl
 
                 List<SERV_YOKOGAWA_UserAppManageEntity> appmanageList = new List<SERV_YOKOGAWA_UserAppManageEntity>();
 
-                _log.InfoFormat("{0}マッピング処理を実行します。", process);
                 // ユーザアプリケーション管理マッピング処理
                 if (!SERV_YOKOGAWA_UserAppManage.Mapping(tousersRow, ref appmanageList, db))
                 {

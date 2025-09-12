@@ -128,6 +128,10 @@ namespace UsersIFLinkage
             if (!CommonUtil.getNotEmptyAppConfigValue(AppConfigParameter.YOKOGAWA_USERMANAGECOMP_UPD_COLS, table)) { return false; }
 			if (!CommonUtil.getNotEmptyAppConfigValue(AppConfigParameter.YOKOGAWA_CONVERT_LICENCETOUSE, table)) { return false; }
 			if (!CommonUtil.getNotEmptyAppConfigValue(AppConfigParameter.YOKOGAWA_CONVERT_LICENCETOUSE_APPCODE, table)) { return false; }
+            // 2025.09.xx Mod Y.Yamamoto@COSMO Start JR札幌_改修対応
+            if (!CommonUtil.getNotEmptyAppConfigValue(AppConfigParameter.YOKOGAWA_USERMANAGE_APPCODE, table)) { return false; }
+            if (!CommonUtil.getNotEmptyAppConfigValue(AppConfigParameter.YOKOGAWA_USERAPPMANAGE_CONVERT_LICENCETOUSE, table)) { return false; }
+            // 2025.09.xx Mod Y.Yamamoto@COSMO End JR札幌_改修対応
 
             // MRMS項目
             if (!CommonUtil.getNotEmptyAppConfigValue(AppConfigParameter.MRMS_CONVERT_MD5, table))         { return false; }
