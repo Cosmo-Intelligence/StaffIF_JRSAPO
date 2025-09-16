@@ -61,7 +61,10 @@ namespace UsersIFLinkage.Data.Import
                             , appcode))
                             {
                                 // 一致する場合設定ファイルからLicencetouse取得
-                                appmanage.Licencetouse = ImportUtil.LicenceToUseSetting(AppConfigParameter.YOKOGAWA_CONVERT_LICENCETOUSE, tousersRow[ToUsersInfoEntity.F_SYOKUIN_KBN].ToString());
+                                // 2025.09.xx Add Y.Yamamoto@COSMO Start JR札幌_改修対応
+                                //appmanage.Licencetouse = ImportUtil.LicenceToUseSetting(AppConfigParameter.YOKOGAWA_CONVERT_LICENCETOUSE, tousersRow[ToUsersInfoEntity.F_SYOKUIN_KBN].ToString());
+                                appmanage.Licencetouse = ImportUtil.LicenceToUseSetting(AppConfigParameter.YOKOGAWA_CONVERT_LICENCETOUSE + "_" + appcode, tousersRow[ToUsersInfoEntity.F_SYOKUIN_KBN].ToString());
+                                // 2025.09.xx Add Y.Yamamoto@COSMO End JR札幌_改修対応
                                 // 2025.05.23 Add K.Kasama@COSMO Start JR札幌_改修対応
                                 if (appmanage.Licencetouse == "")
                                 {
@@ -102,7 +105,10 @@ namespace UsersIFLinkage.Data.Import
                         , appcode))
                         {
                             // 一致する場合設定ファイルからLicencetouse取得
-                            appmanage.Licencetouse = ImportUtil.LicenceToUseSetting(AppConfigParameter.YOKOGAWA_CONVERT_LICENCETOUSE, tousersRow[ToUsersInfoEntity.F_SYOKUIN_KBN].ToString());
+                            // 2025.09.xx Add Y.Yamamoto@COSMO Start JR札幌_改修対応
+                            //appmanage.Licencetouse = ImportUtil.LicenceToUseSetting(AppConfigParameter.YOKOGAWA_CONVERT_LICENCETOUSE, tousersRow[ToUsersInfoEntity.F_SYOKUIN_KBN].ToString());
+                            appmanage.Licencetouse = ImportUtil.LicenceToUseSetting(AppConfigParameter.YOKOGAWA_CONVERT_LICENCETOUSE + "_" + appcode, tousersRow[ToUsersInfoEntity.F_SYOKUIN_KBN].ToString());
+                            // 2025.05.23 Add Y.Yamamoto@COSMO End JR札幌_改修対応
                             // 2025.05.23 Add K.Kasama@COSMO Start JR札幌_改修対応
                             if (appmanage.Licencetouse == "")
                             {

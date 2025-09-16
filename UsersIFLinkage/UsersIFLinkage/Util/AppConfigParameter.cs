@@ -121,11 +121,28 @@ namespace UsersIFLinkage.Util
 		/// </summary>
 		public static string YOKOGAWA_CONVERT_LICENCETOUSE = "YOKOGAWA_CONVERT_LICENCETOUSE";
 
-		/// <summary>
-		/// LICENCETOUSE変換対象APPCODE設定
-		/// </summary>
-		public static string YOKOGAWA_CONVERT_LICENCETOUSE_APPCODE = "YOKOGAWA_CONVERT_LICENCETOUSE_APPCODE";
 
+        // 2025.09.xx Mod Y.Yamamoto@COSMO Start JR札幌_改修対応
+        /// <summary>
+        /// LICENCETOUSE変換対象APPCODE設定
+        /// </summary>
+        public static string YOKOGAWA_CONVERT_LICENCETOUSE_APPCODE = "YOKOGAWA_CONVERT_LICENCETOUSE_APPCODE";
+
+        /// <summary>
+        /// LICENCETOUSE変換設定 EPVR
+        /// </summary>
+        public static string YOKOGAWA_CONVERT_LICENCETOUSE_EPVR = "YOKOGAWA_CONVERT_LICENCETOUSE_EPVR";
+
+        /// <summary>
+        /// LICENCETOUSE変換設定 RPWeb
+        /// </summary>
+        public static string YOKOGAWA_CONVERT_LICENCETOUSE_RPWeb = "YOKOGAWA_CONVERT_LICENCETOUSE_RPWeb";
+
+        /// <summary>
+        /// LICENCETOUSE変換設定 Report
+        /// </summary>
+        public static string YOKOGAWA_CONVERT_LICENCETOUSE_Report = "YOKOGAWA_CONVERT_LICENCETOUSE_Report";
+        // 2025.09.xx Mod Y.Yamamoto@COSMO End JR札幌_改修対応
         #endregion
 
         #region MRMS設定
